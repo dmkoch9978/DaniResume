@@ -34,8 +34,9 @@ position_data <- read_csv('positions.csv') %>%
   mutate(
     # Build some custom sections by collapsing others
     section = case_when(
-      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
-      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+      section %in% c('research_positions', 'industry_positions','volunteer_positions') ~ 'positions', 
+      section %in% c('data_science_writings', 'by_me_press', 'academic_articles') ~ 'writings',
+      section %in% c('honors_and_awards') ~ 'honors',
       TRUE ~ section
     )
   ) 
@@ -54,11 +55,9 @@ Contact {#contact}
 
 
 
-- <i class="fa fa-envelope"></i> nick.strayer@gmail.com
-- <i class="fa fa-twitter"></i> NicholasStrayer
-- <i class="fa fa-github"></i> github.com/nstrayer
-- <i class="fa fa-link"></i> [nickstrayer.me](http://nickstrayer.me/)
-- <i class="fa fa-phone"></i> (734) 645-0110
+- <i class="fa fa-envelope"></i> koch.m.danielle@gmail.com
+- <i class="fa fa-github"></i> github.com/dmkoch9978
+- <i class="fa fa-phone"></i> (###) ### ####
 
 
 
@@ -70,12 +69,10 @@ Language Skills {#skills}
 skills <- tribble(
   ~skill,               ~level,
   "R",                  5,
-  "Javascript (d3.js)", 4.5,
-  "Python",             4,
-  "Bash",               3.5,
-  "SQL",                3,
-  "C++",                3,
-  "AWK",                3
+  "SQL",                4,
+  "Java", 3,
+  "Python",             2,
+  "C++",                2
 )
 build_skill_bars(skills)
 ```
@@ -85,7 +82,7 @@ build_skill_bars(skills)
 Open Source Contributions {#open-source}
 --------------------------------------------------------------------------------
 
-All projects available at `github.com/nstrayer/<name>`
+All projects available at `github.com/dmkoch9978/<name>`
 
 
 - `shinysense`: R package to use sensor data in Shiny apps
@@ -96,7 +93,7 @@ All projects available at `github.com/nstrayer/<name>`
 More info {#more-info}
 --------------------------------------------------------------------------------
 
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
+See full CV at dmkoch9978/cv for more complete list of positions and publications.
 
 
 Disclaimer {#disclaimer}
@@ -104,7 +101,7 @@ Disclaimer {#disclaimer}
 
 Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
 
-Source code: [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
+Source code: [https://github.com/dmkoch9978/Lab6-Part2](https://github.com/dmkoch9978/Lab6-Part2).
 
 Last updated on `r Sys.Date()`.
 
@@ -114,17 +111,15 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Dani Koch {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
+intro_text <- "I have written an award winning research paper on child emotion regulation. I have also created reports which have been utilized for organizational strategy and presented to Nebraska state representatives.
 
-Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
+Currently studying Program Evaluation through Arizona State University and working as a data manager through the United Way of the Midlands.
 "
 
-
-cat(sanitize_links(intro_text))
 ```
 
 
@@ -153,4 +148,11 @@ Selected Writing {data-icon=newspaper}
 position_data %>% print_section('writings')
 ```
 
+Honors {data-icon=newspaper}
+--------------------------------------------------------------------------------
+
+
+```{r}
+position_data %>% print_section('honors')
+```
 
